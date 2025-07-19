@@ -29,6 +29,12 @@ nav ul li {
 }
 
 .dark-nav {
-  background-color: #212ea0;
+  /* background-color: #212ea0; */
+  background-color: cornflowerblue;
+
   transition: 0.5s;
+}
+
+.logo span.dark-logo {
+  color: #000f38;
 }
