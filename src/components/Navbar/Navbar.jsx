@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-scroll";
+import { RiMenu2Fill } from "react-icons/ri";
 
 const Navbar = () => {
   const [sticky, setSticky] = useState(false);
@@ -11,12 +12,16 @@ const Navbar = () => {
     });
   }, []);
 
+  const [mobileMenu, setMobileMenu] = useState(false);
+  const toggleMenu = () => {
+    mobileMenu ? setMobileMenu(false) : setMobileMenu(true);
+  };
   return (
     <nav className={`container ${sticky ? "dark-nav" : ""}`}>
       <h1 className="logo">
         the <span className={`${sticky ? "dark-logo" : ""}`}>GROVE</span>
       </h1>
-      <ul>
+      <ul className={mobileMenu ? "hide-mobile-menu" : ""}>
         <li>
           <Link to="hero" smooth={true} offset={0} duration={500}>
             Home
@@ -48,6 +53,7 @@ const Navbar = () => {
           </Link>
         </li>
       </ul>
+      <RiMenu2Fill size={25} className="menu-icon" onClick={toggleMenu} />
     </nav>
   );
 };
